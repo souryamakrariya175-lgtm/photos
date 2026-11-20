@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Shrishti ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Floating Decorations -->
+    <div class="floating">❤️ 💋 🧸 💗</div>
+
+    <!-- Hanging Teddy Bears -->
+    <div class="teddy teddy-left">🧸</div>
+    <div class="teddy teddy-right">🧸</div>
+
+    <!-- Opening Screen -->
+    <section id="intro">
+        <h1>For Someone Special ❤️</h1>
+        <div class="envelope">💌</div>
+        <p>I made something for you...</p>
+        <button onclick="startJourney()">Open Your Surprise 💗</button>
+    </section>
+
+    <!-- Memories Section -->
+    <section id="memorySection" style="display:none;">
+
+        <h1>10 Moments, 10 Reasons, One girl ❤️</h1>
+
+        <div class="photo-card">
+            <img id="photo" src="photo1.jpeg" alt="Our memory">
+
+            <h2 id="photoTitle"></h2>
+            <p id="photoMessage"></p>
+        </div>
+
+        <p id="counter"></p>
+
+        <div class="progress-container">
+            <div id="progress"></div>
+        </div>
+
+        <button id="nextButton" onclick="nextMemory()">
+            Next Memory ❤️
+        </button>
+
+    </section>
+
+    <!-- Final Letter -->
+    <section id="finalLetter" style="display:none;">
+        <h1>A Little Message For You 💌</h1>
+
+        <p>
+            Shrishti, every picture holds a memory,
+            and every memory reminds me how special
+            you are. I hope this little surprise
+            makes you smile. ❤️
+        </p>
+
+        <button onclick="showQuestion()">
+            One Last Question 💗
+        </button>
+    </section>
+
+    <!-- YES / NO Question -->
+    <section id="questionSection" style="display:none;">
+        <h1>Shrishti, will you accept unlimited kisses from me? 😘💋</h1>
+
+        <div class="answer-buttons">
+            <button onclick="sayYes()">YES ❤️</button>
+            <button id="noButton" onmouseover="moveNo()" onclick="moveNo()">
+                NO 🙈
+            </button>
+        </div>
+    </section>
+
+    <!-- YES Response -->
+    <section id="yesResponse" style="display:none;">
+        <h1>YAYYYYY! ❤️😘</h1>
+        <h2>Sending unlimited kisses! 💋💋💋</h2>
+        <p>You are very special to me! 🧸💗</p>
+
+        <button onclick="replay()">Replay Memories 🔁</button>
+    </section>
+
+    <script>
+
+        // All 9 photos from your folder
+        const memories = [
+
+            {
+                image: "photo1.jpeg",
+                title: "Beautiful Moment ❤️",
+                message: "The day you wore my jersey felt like I'm a part of you and you'll never leave me alone ❤️"
+            },
+
+            {
+                image: "photo2.jpeg",
+                title: "Your Smile 💗",
+                message: "The diwali fit my darling were fire you were the real DIVA in DIVA-LI ❤️"
+            },
+
+            {
+                image: "photo3.jpeg",
+                title: "A Lovely Memory 🌸",
+                message: "The mor pankh in your hand and the makeup was literally stunning and i loved it so much 😍"
+            },
+
+            {
+                image: "photo4.jpeg",
+                title: "Little Memories 🧸",
+                message: "Ok babe , This one's my super favourite like my little princess in her little form , awwwwlelelele mera pyara chota sa baby ❤️"
+            },
+
+            {
+                image: "photo5.jpeg",
+                title: "My Favourite Moments 💕",
+                message: "And shrishtiiiiiiiiiii how can I resist this photo this was a cherry on top babyyyyyyyyyyyyyyy 😗❤️"
+            },
+
+            {
+                image: "photo6.jpeg",
+                title: "That Beautiful Smile 😘",
+                message: "This look babe , you were really looking like a goddess in this outfit and I'll only ask to stay forever with me ❤️"
+            },
+
+            {
+                image: "photo7.jpeg",
+                title: "A Special Picture ❤️",
+                message: "I was like ki how can someone be so beautiful my darling 💗"
+            },
+
+            {
+                image: "photo8.jpeg",
+                title: "Simply Special 💗",
+                message: "Awwww babeeeee , you wore this the day before Dusshera holidays and literally I was like ki how can someone be so beautiful my darling 💗"
+            },
+
+            {
+                image: "photo9.jpeg",
+                title: "One More Memory 💌",
+                message: "Fuck shrishtiiiiiiiiiii I'm gonna now never ever take my eyes away from your face you are so gorgeous my darling 💋❤️"
+            }
+
+        ];
+
+        let currentIndex = 0;
+
+        function startJourney() {
+            document.getElementById("intro").style.display = "none";
+            document.getElementById("memorySection").style.display = "block";
+            showMemory();
+        }
+
+        function showMemory() {
+
+            document.getElementById("photo").src =
+                memories[currentIndex].image;
+
+            document.getElementById("photoTitle").innerText =
+                memories[currentIndex].title;
+
+            document.getElementById("photoMessage").innerText =
+                memories[currentIndex].message;
+
+            document.getElementById("counter").innerText =
+                `Memory ${currentIndex + 1} of ${memories.length}`;
+
+            document.getElementById("progress").style.width =
+                ((currentIndex + 1) / memories.length) * 100 + "%";
+
+        }
+
+        function nextMemory() {
+
+            currentIndex++;
+
+            if (currentIndex < memories.length) {
+                showMemory();
+            } else {
+                document.getElementById("memorySection").style.display = "none";
+                document.getElementById("finalLetter").style.display = "block";
+            }
+
+        }
+
+        function showQuestion() {
+            document.getElementById("finalLetter").style.display = "none";
+            document.getElementById("questionSection").style.display = "block";
+        }
+
+        function moveNo() {
+
+            const button = document.getElementById("noButton");
+
+            button.style.position = "fixed";
+            button.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            button.style.top = Math.random() * (window.innerHeight - 50) + "px";
+
+        }
+
+        function sayYes() {
+
+            document.getElementById("questionSection").style.display = "none";
+            document.getElementById("yesResponse").style.display = "block";
+
+            for (let i = 0; i < 40; i++) {
+
+                let heart = document.createElement("div");
+
+                heart.innerHTML = "❤️";
+                heart.className = "heart";
+
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+                document.body.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 5000);
+
+            }
+
+        }
+
+        function replay() {
+
+            currentIndex = 0;
+
+            document.getElementById("yesResponse").style.display = "none";
+            document.getElementById("questionSection").style.display = "none";
+            document.getElementById("finalLetter").style.display = "none";
+            document.getElementById("intro").style.display = "block";
+
+            const noButton = document.getElementById("noButton");
+            noButton.style.position = "static";
+            noButton.style.left = "";
+            noButton.style.top = "";
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+
+/* GENERAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe0ec, #fff0f5, #ffd6e7);
+    color: #8b3157;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+section {
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+}
+
+h1 {
+    font-size: 35px;
+    color: #d63384;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #c44579;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 600px;
+}
+
+
+/* BUTTONS */
+
+button {
+    background: #e75480;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(214, 51, 132, 0.2);
+}
+
+button:hover {
+    background: #c2185b;
+    transform: scale(1.08);
+}
+
+
+/* ENVELOPE */
+
+.envelope {
+    font-size: 100px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* PHOTO CARD */
+
+.photo-card {
+    background: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(180, 50, 100, 0.2);
+    animation: appear 0.6s ease;
+}
+
+.photo-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background: #fff0f5;
+    border-radius: 15px;
+    display: block;
+}
+
+.photo-card h2 {
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.photo-card p {
+    font-size: 16px;
+    margin: auto;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* PROGRESS BAR */
+
+.progress-container {
+    width: 80%;
+    max-width: 400px;
+    height: 10px;
+    background: #f5b8ce;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 100%;
+    width: 0%;
+    background: #e75480;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+#counter {
+    font-weight: bold;
+    color: #c2185b;
+}
+
+
+/* FINAL LETTER */
+
+#finalLetter p {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(180, 50, 100, 0.15);
+}
+
+
+/* YES AND NO BUTTONS */
+
+.answer-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+#noButton {
+    background: #777;
+}
+
+
+/* YES RESPONSE */
+
+#yesResponse h1 {
+    font-size: 50px;
+    animation: bounce 1.5s infinite;
+}
+
+
+/* HANGING TEDDY BEARS */
+
+.teddy {
+    position: fixed;
+    top: 0;
+    font-size: 45px;
+    z-index: 10;
+    transform-origin: top center;
+    animation: swing 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.teddy-left {
+    left: 15px;
+}
+
+.teddy-right {
+    right: 15px;
+    animation-delay: 0.5s;
+}
+
+@keyframes swing {
+    0%, 100% {
+        transform: rotate(-12deg);
+    }
+
+    50% {
+        transform: rotate(12deg);
+    }
+}
+
+
+/* FLOATING DECORATIONS */
+
+.floating {
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    font-size: 25px;
+    letter-spacing: 15px;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 5;
+}
+
+
+/* HEARTS CREATED BY JAVASCRIPT */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 25px;
+    pointer-events: none;
+    z-index: 20;
+    animation: floatHeart 4s linear forwards;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 40px 15px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    h2 {
+        font-size: 21px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .photo-card {
+        width: 95%;
+        padding: 12px;
+    }
+
+    .photo-card img {
+        height: 280px;
+    }
+
+    .envelope {
+        font-size: 80px;
+    }
+
+    .teddy {
+        font-size: 30px;
+    }
+
+    .teddy-left {
+        left: 5px;
+    }
+
+    .teddy-right {
+        right: 5px;
+    }
+
+    .answer-buttons {
+        gap: 15px;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+
+}
